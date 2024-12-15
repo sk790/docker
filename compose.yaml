@@ -1,0 +1,20 @@
+version: "3.8"
+name: mydocker
+services:
+  auth:
+    image: auth
+    container_name: authc
+    ports:
+      - "5000:3000"
+  backend:
+    image: backend
+    container_name: backendc
+    ports:
+      - "3000:6000"
+    env_file:
+      - .env
+  client:
+    image: client
+    container_name: clientc
+    ports:
+      - "5174:5173"
